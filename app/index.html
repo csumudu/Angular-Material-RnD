@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -26,11 +27,26 @@
             <img src="images/yeoman.png" style="height: 40px">
         </div>
         <div flex layout="horizontal" layout-align="end center">
-            sdsd
+            <md-button layout="vertical" layout-align="center center" class="md-button-raised menuBtn" >
+                <i class="fa fa-bars"></i>
+            </md-button>
         </div>
     </header>
-    <main flex style="background-color: #e1f5fe" layout="vertical" layout-align="center center">
-        <div layout-fill flex flex-lg="95" ng-view></div>
+    <main flex style="background-color: #e1f5fe" layout="horizontal"  layout-fill>
+        <md-content flex layout-padding>
+
+            <div flex layout-fill flex flex-lg="95" ng-view></div>
+        </md-content>
+
+        <md-sidenav  ng-controller="SideNavController" component-id="right" is-open="{{model.isMenuOpen}}" class="md-sidenav-right">
+            <md-toolbar  class="md-theme-light" >
+                <h1 class="md-toolbar-tools" layout="horizontal" layout-align="center center">Wellcome Sumudu</h1>
+            </md-toolbar>
+            <div layout-padding ng-repeat="m in model.menu" style="margin: 5px;border-bottom: dotted 1px #CCCCCC">
+                <a>{{m.name}}</a>
+            </div>
+
+        </md-sidenav>
     </main>
     <footer class="appFooter">
        &nbsp;
@@ -69,6 +85,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/HomeController.js"></script>
+        <script src="scripts/controllers/HeaderController.js"></script>
+        <script src="scripts/controllers/SideNavController.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,20 +1,5 @@
 angular.module('angularBasicsApp')
         .controller('HomeController',['$scope',function($scope){
-            var memu = [{
-                name : 'Scope Test',
-                icon : ''
-            },
-            {
-                name : 'Directive Test',
-                icon : ''
-            },
-            {
-                name : 'Director Overide',
-                icon : ''
-            }];
-
-
-
             var d = new Date();
             var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
