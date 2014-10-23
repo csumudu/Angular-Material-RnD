@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 angular
-  .module('angularBasicsApp', ['ngRoute'])
+  .module('angularBasicsApp', ['ngRoute','ngMaterial'])
     .config(function($routeProvider){
         $routeProvider.when('/home',{
           templateUrl : 'views/home.html',

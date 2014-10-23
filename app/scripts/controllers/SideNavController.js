@@ -1,5 +1,5 @@
 angular.module('angularBasicsApp')
-    .controller('SideNavController',['$scope',function($scope){
+    .controller('SideNavController',['$scope','$rootScope',function($scope,$rootScope){
         var sideNav ={};
         sideNav.menu = [{
             name : 'Scope Test',

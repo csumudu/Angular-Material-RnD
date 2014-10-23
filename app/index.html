@@ -22,12 +22,12 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header layout="horizontal"layout-padding class="appHeader">
+    <header layout="horizontal"layout-padding class="appHeader" ng-controller="HeaderController">
         <div flex layout="horizontal" layout-align="start center">
             <img src="images/yeoman.png" style="height: 40px">
         </div>
         <div flex layout="horizontal" layout-align="end center">
-            <md-button layout="vertical" layout-align="center center" class="md-button-raised menuBtn" >
+            <md-button layout="vertical" layout-align="center center" class="md-button-raised menuBtn" ng-click="onMenuClick()" >
                 <i class="fa fa-bars"></i>
             </md-button>
         </div>
@@ -38,12 +38,14 @@
             <div flex layout-fill flex flex-lg="95" ng-view></div>
         </md-content>
 
-        <md-sidenav  ng-controller="SideNavController" component-id="right" is-open="{{model.isMenuOpen}}" class="md-sidenav-right">
+        <md-sidenav   component-id="right" is-open="false" class="md-sidenav-right" is-locked-open="$media('min-width: 200px')" >
             <md-toolbar  class="md-theme-light" >
                 <h1 class="md-toolbar-tools" layout="horizontal" layout-align="center center">Wellcome Sumudu</h1>
             </md-toolbar>
+            <div  ng-controller="SideNavController" >
             <div layout-padding ng-repeat="m in model.menu" style="margin: 5px;border-bottom: dotted 1px #CCCCCC">
                 <a>{{m.name}}</a>
+            </div>
             </div>
 
         </md-sidenav>
@@ -87,6 +89,4 @@
         <script src="scripts/controllers/HomeController.js"></script>
         <script src="scripts/controllers/HeaderController.js"></script>
         <script src="scripts/controllers/SideNavController.js"></script>
-        <!-- endbuild -->
-</body>
-</html>
+        <!--
